@@ -42,7 +42,6 @@ MatrixCell::MatrixCell(Point& p_pHightStartPoint,
 
 void MatrixCell::PrintStatus()
 {
-	// Tawel
 	 // cout << this->_status;
 
 	if (this->_status == STATE_FREE)
