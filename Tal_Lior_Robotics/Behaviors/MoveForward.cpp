@@ -11,7 +11,7 @@ bool MoveForward::startCond()
 {
 	cout<<"The distance in sensor 333 is: " <<_robot->getDistanceFromObstacle(333)  <<endl;
 
-	// Check the front lasers - only i/f none of them found obstacle we can go forward
+	// Check the front lasers - only if none of them found obstacle we can go forward
 	for(int i=260 ; i< 406;++i)
 	{
 		double distance = _robot->getDistanceFromObstacle(i);
