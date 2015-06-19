@@ -22,8 +22,9 @@ Manager::Manager(Plan* plan, Robot* robot, SlamManager* slmManager)
 
 void Manager::run()
 {
-	ConfigFile v;
-	v.ReadConfigFile();
+	// Reading the config file
+	ConfigFile cnfFile;
+	cnfFile.ReadConfigFile();
 
 	// read info from sensors
 	this->_robot->read();
