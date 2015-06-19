@@ -122,11 +122,6 @@ double Particle::getParticleObservationsProbablity(Robot* robot)
 			{
 				trueNum++;
 			}
-			else if (currCell.GetStatus() == STATE_UNKNOWN)
-			{
-
-				_particleMap->setValueAtLocation(pObstacleLocation, STATE_OCCUPIED);
-			}
 		}
 	}
 

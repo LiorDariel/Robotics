@@ -10,33 +10,21 @@
 #include <iostream>
 
 MatrixCell::MatrixCell()
-			: _HightStartPoint(0,0),
-			  _HightEndPoint(0,0),
-			  _WidthStartPoint(0,0),
- 			  _WidthEndPoint(0,0),
- 			  _status(STATE_UNKNOWN)
+			: _point(0,0),
+			  _status(STATE_FREE)
 {
 }
 
 MatrixCell::MatrixCell(const MatrixCell& p_mcCellToCopy)
 {
-	this->_HightEndPoint = p_mcCellToCopy._HightEndPoint;
-	this->_HightStartPoint = p_mcCellToCopy._HightStartPoint;
-	this->_WidthEndPoint = p_mcCellToCopy._WidthEndPoint;
-	this->_WidthStartPoint = p_mcCellToCopy._WidthStartPoint;
+	this->_point = p_mcCellToCopy._point;
 	this->_status = p_mcCellToCopy._status;
 }
 
-MatrixCell::MatrixCell(Point& p_pHightStartPoint,
-					   Point& p_pHightEndPoint,
-					   Point& p_pWidthStartPoint,
-					   Point& p_pWidthEndPoint,
+MatrixCell::MatrixCell(Point& p_pPoint,
 					   EState p_cStatus)
 {
-	this->_HightEndPoint = p_pHightEndPoint;
-	this->_HightStartPoint = p_pHightStartPoint;
-	this->_WidthEndPoint = p_pWidthEndPoint;
-	this->_WidthStartPoint = p_pWidthStartPoint;
+	this->_point = p_pPoint;
 	this->_status = p_cStatus;
 }
 
@@ -52,21 +40,5 @@ void MatrixCell::PrintStatus()
 	{
 		cout<< "X";
 	}
-	else if(this->_status == STATE_UNKNOWN)
-	{
-		cout<< "?";
-	}
 }
 
-bool MatrixCell::IsPointInCell(Point& p_pPointToCheck)
-{
-	if (this->_HightStartPoint <= p_pPointToCheck &&
-		this->_HightEndPoint >= p_pPointToCheck &&
-		this->_WidthStartPoint <= p_pPointToCheck &&
-		this->_WidthEndPoint >= p_pPointToCheck)
-	{
-		return true;
-	}
-
-	return false;
-}

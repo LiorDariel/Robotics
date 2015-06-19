@@ -8,6 +8,7 @@
 #ifndef CONFIGFILE_H_
 #define CONFIGFILE_H_
 
+
 class ConfigFile {
 public:
 	ConfigFile();

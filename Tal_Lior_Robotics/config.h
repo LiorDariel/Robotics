@@ -41,8 +41,7 @@ extern string MAP_PATH;
 enum EState
 {
 	STATE_FREE = 0,
-	STATE_OCCUPIED,
-	STATE_UNKNOWN
+	STATE_OCCUPIED
 };
 
 #endif /* CONFIG_H_ */

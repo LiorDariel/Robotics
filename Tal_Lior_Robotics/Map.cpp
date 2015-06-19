@@ -15,19 +15,19 @@ unsigned width, height;
 
 Map::Map() {
 	// Initialize the matrix
-	for (int nRowIndex = 0; nRowIndex < (int) ROW_NUM; ++nRowIndex) {
-		for (int nColIndex = 0; nColIndex < COL_NUM; ++nColIndex) {
-			Point StartHightPoint = Point(nColIndex * 50, nRowIndex * 50);
-			Point EndHightPoint = Point((nColIndex) * 50, (nRowIndex + 1) * 50);
-			Point StartWidthPoint = Point(nColIndex * 50, nRowIndex * 50);
-			Point EndWidthPoint = Point((nColIndex + 1) * 50, nRowIndex * 50);
+	//for (int nRowIndex = 0; nRowIndex < (int) ROW_NUM; ++nRowIndex) {
+		//for (int nColIndex = 0; nColIndex < COL_NUM; ++nColIndex) {
+			//Point StartHightPoint = Point(nColIndex * 50, nRowIndex * 50);
+			//Point EndHightPoint = Point((nColIndex) * 50, (nRowIndex + 1) * 50);
+			//Point StartWidthPoint = Point(nColIndex * 50, nRowIndex * 50);
+			//Point EndWidthPoint = Point((nColIndex + 1) * 50, nRowIndex * 50);
 
-			_map[nRowIndex][nColIndex].SetHighStartPoint(StartHightPoint);
-			_map[nRowIndex][nColIndex].SetHighEndPoint(EndHightPoint);
-			_map[nRowIndex][nColIndex].SetWidthStartPoint(StartWidthPoint);
-			_map[nRowIndex][nColIndex].SetWidthEndtPoint(EndWidthPoint);
-		}
-	}
+		//	_map[nRowIndex][nColIndex].SetHighStartPoint(StartHightPoint);
+		//	_map[nRowIndex][nColIndex].SetHighEndPoint(EndHightPoint);
+		//	_map[nRowIndex][nColIndex].SetWidthStartPoint(StartWidthPoint);
+		//	_map[nRowIndex][nColIndex].SetWidthEndtPoint(EndWidthPoint);
+		//}
+	//}
 }
 
 Map::Map(const Map& other) {
@@ -104,13 +104,13 @@ MatrixCell& Map::getValueAtLocation(Point p_pLocation) {
 }
 
 MatrixCell Map::worldToMap(Point p_pPoint) {
-	for (int nRowIndex = 0; nRowIndex < ROW_NUM; ++nRowIndex) {
-		for (int nColIndex = 0; nColIndex < COL_NUM; ++nColIndex) {
-			if (_map[nRowIndex][nColIndex].IsPointInCell(p_pPoint)) {
-				return (_map[nRowIndex][nColIndex]);
-			}
-		}
-	}
+//	for (int nRowIndex = 0; nRowIndex < ROW_NUM; ++nRowIndex) {
+//		for (int nColIndex = 0; nColIndex < COL_NUM; ++nColIndex) {
+//			if (_map[nRowIndex][nColIndex].IsPointInCell(p_pPoint)) {
+//				return (_map[nRowIndex][nColIndex]);
+//			}
+//		}
+//	}
 	return MatrixCell();
 }
 
@@ -137,8 +137,7 @@ void Map::loadImage(const char* filename)
 
 void Map::readMapFromPng()
 {
-	const char* filename = "ds";
-	//string f = MAP_PATH;
+	const char* filename = "hospital_section.png";
 	loadImage(filename);
 
 	int gridWidth = (width % 4 == 0 ) ? width / 4 : (width / 4)+ 1;
