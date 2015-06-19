@@ -24,10 +24,12 @@ Manager::Manager(Plan* plan, Robot* robot, SlamManager* slmManager)
 void Manager::run()
 {
 	// Reading the config file
-	ConfigFile cnfFile;
-	cnfFile.ReadConfigFile();
+	ConfigFile *cnfFile;
+	cnfFile = ConfigFile::GetInstance();
+	cnfFile->ReadConfigFile();
+
 	Map map;
-	map.readMapFromPng();
+	map.readMapFromPng(cnfFile->MAP_PATH.c_str());
 
 	// read info from sensors
 	this->_robot->read();

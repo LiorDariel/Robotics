@@ -135,9 +135,9 @@ void Map::loadImage(const char* filename)
 
 }
 
-void Map::readMapFromPng()
+void Map::readMapFromPng(const char* filename)
 {
-	const char* filename = "hospital_section.png";
+	//const char* filename = "hospital_section.png";
 	loadImage(filename);
 
 	int gridWidth = (width % 4 == 0 ) ? width / 4 : (width / 4)+ 1;

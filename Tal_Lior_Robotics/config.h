@@ -24,14 +24,8 @@
 
 //extern int ROW_NUM;
 //extern int COL_NUM;
-extern double MAP_RESOLUTION;
-extern double GRID_RESOLUTION;
-extern Point START_LOCATION;
-extern double START_LOCATION_YAW;
-extern Point TARGET_POINT;
-extern double ROBOT_SIZE_X;
-extern double ROBOT_SIZE_Y;
-extern string MAP_PATH;
+
+
 
 /* MACROS */
 #define GET_LASER_ANGLE(sensor) (((sensor) * (0.36) - 120.0) / 180.0) * PI

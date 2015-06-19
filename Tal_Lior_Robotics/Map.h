@@ -27,7 +27,7 @@ public:
 	MatrixCell& getValueAtLocation(Point p_pLocation);
 	void setValueAtCell(int p_nRow,int p_nCol);
 	MatrixCell worldToMap(Point p_pPoint);
-	void readMapFromPng();
+	void readMapFromPng(const char* filename);
 
 private:
 	Robot *_robot;

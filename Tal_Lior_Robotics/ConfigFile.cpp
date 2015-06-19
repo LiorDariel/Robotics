@@ -15,12 +15,29 @@
 using namespace std;
 
 ConfigFile::ConfigFile() {
-	// TODO Auto-generated constructor stub
-
+	this->ReadConfigFile();
 }
 
 ConfigFile::~ConfigFile() {
 	// TODO Auto-generated destructor stub
+}
+
+bool ConfigFile::instanceFlag = false;
+
+ConfigFile* ConfigFile::cnfFile = NULL;
+
+ConfigFile* ConfigFile::GetInstance()
+{
+    if(! instanceFlag)
+    {
+    	cnfFile = new ConfigFile();
+        instanceFlag = true;
+        return cnfFile;
+    }
+    else
+    {
+        return cnfFile;
+    }
 }
 
 void ConfigFile::ReadConfigFile()

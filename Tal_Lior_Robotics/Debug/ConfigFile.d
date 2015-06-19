@@ -1,7 +1,7 @@
-ConfigFile.d: ../ConfigFile.cpp ../ConfigFile.h ../config.h ../Point.h
+ConfigFile.d: ../ConfigFile.cpp ../ConfigFile.h ../Point.h ../config.h
 
 ../ConfigFile.h:
 
-../config.h:
-
 ../Point.h:
+
+../config.h:
