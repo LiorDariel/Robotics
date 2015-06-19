@@ -4,6 +4,7 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../ConfigFile.cpp \
 ../Manager.cpp \
 ../Map.cpp \
 ../MatrixCell.cpp \
@@ -11,9 +12,11 @@ CPP_SRCS += \
 ../Point.cpp \
 ../Robot.cpp \
 ../SlamManager.cpp \
+../lodepng.cpp \
 ../main.cpp 
 
 OBJS += \
+./ConfigFile.o \
 ./Manager.o \
 ./Map.o \
 ./MatrixCell.o \
@@ -21,9 +24,11 @@ OBJS += \
 ./Point.o \
 ./Robot.o \
 ./SlamManager.o \
+./lodepng.o \
 ./main.o 
 
 CPP_DEPS += \
+./ConfigFile.d \
 ./Manager.d \
 ./Map.d \
 ./MatrixCell.d \
@@ -31,6 +36,7 @@ CPP_DEPS += \
 ./Point.d \
 ./Robot.d \
 ./SlamManager.d \
+./lodepng.d \
 ./main.d 
 
 
