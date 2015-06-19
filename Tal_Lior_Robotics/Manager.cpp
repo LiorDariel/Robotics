@@ -10,6 +10,7 @@
 #include "SlamManager.h"
 #include "Robot.h"
 #include "Point.h"
+#include "ConfigFile.h"
 #include <time.h>
 
 Manager::Manager(Plan* plan, Robot* robot, SlamManager* slmManager)
@@ -21,6 +22,9 @@ Manager::Manager(Plan* plan, Robot* robot, SlamManager* slmManager)
 
 void Manager::run()
 {
+	ConfigFile v;
+	v.ReadConfigFile();
+
 	// read info from sensors
 	this->_robot->read();
 	this->_robot->read();

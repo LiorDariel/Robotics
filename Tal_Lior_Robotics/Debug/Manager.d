@@ -14,7 +14,8 @@ Manager.d: ../Manager.cpp ../Manager.h ../Plans/Plan.h \
  /usr/local/include/player-2.0/libplayerc++/playererror.h \
  /usr/local/include/player-2.0/libplayerc++/clientproxy.h \
  ../Plans/../Point.h ../Plans/../Behaviors/Behavior.h \
- ../Plans/../Behaviors/../Robot.h ../SlamManager.h ../Robot.h ../Point.h
+ ../Plans/../Behaviors/../Robot.h ../SlamManager.h ../Robot.h ../Point.h \
+ ../ConfigFile.h
 
 ../Manager.h:
 
@@ -59,3 +60,5 @@ Manager.d: ../Manager.cpp ../Manager.h ../Plans/Plan.h \
 ../Robot.h:
 
 ../Point.h:
+
+../ConfigFile.h:
