@@ -27,10 +27,12 @@ public:
 	MatrixCell& getValueAtLocation(Point p_pLocation);
 	void setValueAtCell(int p_nRow,int p_nCol);
 	MatrixCell worldToMap(Point p_pPoint);
+	void readMapFromPng();
 
 private:
 	Robot *_robot;
 	MatrixCell _map[ROW_NUM][COL_NUM];
+	void loadImage(const char* filename);
 };
 
 #endif /* MAP_H_ */

@@ -8,6 +8,10 @@
 #include "Map.h"
 #include "Robot.h"
 #include "MatrixCell.h"
+#include "lodepng.h"
+
+std::vector<unsigned char> image; //the raw pixels
+unsigned width, height;
 
 Map::Map() {
 	// Initialize the matrix
@@ -118,4 +122,70 @@ void Map::printMap() {
 
 		cout << "" << endl;
 	}
+}
+
+//Decode from disk to raw pixels with a single function call
+void Map::loadImage(const char* filename)
+{
+  //decode
+  unsigned error = lodepng::decode(image, width, height, filename);
+
+  //if there's an error, display it
+  if(error) std::cout << "decoder error " << error << ": " << lodepng_error_text(error) << std::endl;
+
+}
+
+void Map::readMapFromPng()
+{
+	const char* filename = "ds";
+	//string f = MAP_PATH;
+	loadImage(filename);
+
+	int gridWidth = (width % 4 == 0 ) ? width / 4 : (width / 4)+ 1;
+	int gridHeight = (height % 4 == 0 ) ? height / 4 : (height / 4)+ 1;
+	std::vector<int> myGrid(gridWidth * gridHeight);
+	std::vector<unsigned char> myGridPic(gridWidth * 4 * gridHeight);
+	int countBlackPixs = 0;
+
+	// Go through cubix columns
+	for (unsigned int i = 0; i < width * 4; i+=16)
+	{
+		// Go through cubix lines
+		for (unsigned int j = 0; j < height; j+=4)
+		{
+			// Go through inner columns
+			for (unsigned int k = 0; k < 4 * 4; k+=4)
+			{
+				// Go through inner lines
+				for (unsigned int m = 0; m < 4; m++)
+				{
+					//cout << "i: " << i << ", j: " << j << ", k: " << k << ", m: " << m << endl;
+					// Check if black
+					if (((j + m) * width * 4) + k + i + 3 >= width * 4 * height)
+					{
+						countBlackPixs++;
+					}
+					else if
+					 (image[((j + m) * width * 4) + k + i] == 0 &&
+						image[((j + m) * width * 4) + k + i + 1] == 0 &&
+						image[((j + m) * width * 4) + k + i + 2]==0 &&
+						image[((j + m) * width * 4) + k + i + 3]==255)
+					{
+						countBlackPixs++;
+					}
+
+				}
+			}
+			if (countBlackPixs)
+			{
+				myGrid[((j/4) * gridWidth) + (i / 16)] = 1;
+			}
+			else
+			{
+				myGrid[((j/4) * gridWidth) + (i / 16)] = 0;
+			}
+			countBlackPixs = 0;
+		}
+	}
+
 }

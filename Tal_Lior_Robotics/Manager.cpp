@@ -11,6 +11,7 @@
 #include "Robot.h"
 #include "Point.h"
 #include "ConfigFile.h"
+#include "Map.h"
 #include <time.h>
 
 Manager::Manager(Plan* plan, Robot* robot, SlamManager* slmManager)
@@ -25,6 +26,8 @@ void Manager::run()
 	// Reading the config file
 	ConfigFile cnfFile;
 	cnfFile.ReadConfigFile();
+	Map map;
+	map.readMapFromPng();
 
 	// read info from sensors
 	this->_robot->read();
