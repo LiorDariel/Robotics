@@ -26,7 +26,6 @@ void Manager::run()
 	// Reading the config file
 	ConfigFile *cnfFile;
 	cnfFile = ConfigFile::GetInstance();
-	cnfFile->ReadConfigFile();
 
 	Map map;
 	map.readMapFromPng(cnfFile->MAP_PATH.c_str());

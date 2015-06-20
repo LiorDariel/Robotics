@@ -19,14 +19,14 @@ class ConfigFile {
 public:
 	void ReadConfigFile();
 	static ConfigFile* GetInstance();
-	static double MAP_RESOLUTION;
-	static double GRID_RESOLUTION;
-	static Point START_LOCATION;
-	static double START_LOCATION_YAW;
-	static Point TARGET_POINT;
-	static double ROBOT_SIZE_X;
-	static double ROBOT_SIZE_Y;
-	static string MAP_PATH;
+	double MAP_RESOLUTION;
+	double GRID_RESOLUTION;
+	Point START_LOCATION;
+	double START_LOCATION_YAW;
+	Point TARGET_POINT;
+	double ROBOT_SIZE_X;
+	double ROBOT_SIZE_Y;
+	string MAP_PATH;
 
 private:
 	static ConfigFile *cnfFile;

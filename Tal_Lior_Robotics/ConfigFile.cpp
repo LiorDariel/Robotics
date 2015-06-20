@@ -64,38 +64,38 @@ void ConfigFile::ReadConfigFile()
 		getline(fin, line);
 		istringstream aa(line);
 		aa >> temp >> mapPath;
-		string MAP_PATH = mapPath;
+		this->MAP_PATH = mapPath;
 
 		// Getting the start location
 		getline(fin, line);
 		istringstream bb(line);
 		bb >> temp >> startLocationX >> startLocationY >> startLocationYAW;
 		Point* START_LOCATION = new Point(startLocationX, startLocationY);
-		double START_LOCATION_YAW = startLocationYAW;
+		this-> START_LOCATION_YAW = startLocationYAW;
 
 		// Getting the goal
 		getline(fin, line);
 		istringstream cc(line);
 		cc >> temp >> targetPointX >> targetPointY;
-		Point* TARGET_POINT = new Point(targetPointX, targetPointY);
+		//this-> TARGET_POINT = new Point(targetPointX, targetPointY);
 
 		// Getting the robot size
 		getline(fin, line);
 		istringstream dd(line);
 		dd >> temp >> robotSizeX >> robotSizeY;
-		double ROBOT_SIZE_X = robotSizeX;
-		double ROBOT_SIZE_Y = robotSizeY;
+		this-> ROBOT_SIZE_X = robotSizeX;
+		this-> ROBOT_SIZE_Y = robotSizeY;
 
 		// Getting the map resolution
 		getline(fin, line);
 		istringstream ee(line);
 		ee >> temp >> mapResolution;
-		double MAP_RESOLUTION = mapResolution;
+		this-> MAP_RESOLUTION = mapResolution;
 
 		// Getting the grid resolution
 		getline(fin, line);
 		istringstream ff(line);
 		ff >> temp >> gridResolution;
-		double GRID_RESOLUTION = gridResolution;
+		this-> GRID_RESOLUTION = gridResolution;
 	}
 
